@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: pet-adoption-platform
-          image: YOUR_DOCKERHUB_USERNAME/pet-adoption-platform:latest
+          image: spandana234/pet-adoption-platform:latest
 
           ports:
             - containerPort: 5000
