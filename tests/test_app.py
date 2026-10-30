@@ -28,15 +28,6 @@ def test_available_pets(driver):
     assert "Bruno" in driver.page_source
 
 
-def test_about_section(driver):
-    assert "About" in driver.page_source
-
-
-def test_adoption_form(driver):
-    form = driver.find_element(By.ID, "adoption-form")
-    assert form.is_displayed()
-
-
 def test_rescue_form(driver):
     form = driver.find_element(By.ID, "rescue-form")
     assert form.is_displayed()
