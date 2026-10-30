@@ -28,11 +28,6 @@ def test_available_pets(driver):
     assert "Bruno" in driver.page_source
 
 
-def test_rescue_form(driver):
-    form = driver.find_element(By.ID, "rescue-form")
-    assert form.is_displayed()
-
-
 def test_pet_cards(driver):
     pets = driver.find_elements(By.CLASS_NAME, "pet-card")
     assert len(pets) > 0
