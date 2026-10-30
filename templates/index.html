@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare | Adoption & Rescue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h2>🐾 PetCare</h2>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#pets">Available Pets</a>
+            <a href="#adoption">Adopt</a>
+            <a href="#rescue">Rescue</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+{% endwith %}
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Give Them a Home.<br>Give Them Love.</h1>
+        <p>Every pet deserves a loving family. Adopt a friend or help an animal in need.</p>
+        <a href="#pets" class="btn">Explore Pets</a>
+        <a href="#rescue" class="btn secondary">Report a Rescue</a>
+    </div>
+</section>
+
+<section id="pets" class="section">
+    <h2>Meet Our Lovely Pets</h2>
+    <p class="subtitle">Find your perfect companion today!</p>
+
+    <div class="pet-container">
+
+        <div class="pet-card">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600" alt="Golden Retriever">
+            <h3>Bruno</h3>
+            <p>Dog | 2 Years | Male</p>
+            <p>Friendly and playful golden retriever.</p>
+            <a href="#adoption" class="btn">Adopt Bruno</a>
+        </div>
+
+        <div class="pet-card">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600" alt="Cat">
+            <h3>Luna</h3>
+            <p>Cat | 1 Year | Female</p>
+            <p>Calm, adorable and affectionate.</p>
+            <a href="#adoption" class="btn">Adopt Luna</a>
+        </div>
+
+        <div class="pet-card">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600" alt="Puppy">
+            <h3>Max</h3>
+            <p>Dog | 6 Months | Male</p>
+            <p>Energetic puppy who loves playing.</p>
+            <a href="#adoption" class="btn">Adopt Max</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="adoption" class="section form-section">
+    <h2>Adopt a Pet ❤️</h2>
+    <p class="subtitle">Fill in the form to begin your adoption journey.</p>
+
+    <form action="/adopt" method="POST">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+
+        <select name="pet" required>
+            <option value="">Select a Pet</option>
+            <option value="Bruno">Bruno - Golden Retriever</option>
+            <option value="Luna">Luna - Cat</option>
+            <option value="Max">Max - Puppy</option>
+        </select>
+
+        <textarea name="message" placeholder="Why would you like to adopt this pet?"></textarea>
+
+        <button type="submit" class="btn">Submit Adoption Request</button>
+    </form>
+</section>
+
+<section id="rescue" class="section rescue-section">
+    <h2>Help an Animal in Need 🐶</h2>
+    <p class="subtitle">Found a stray, injured or abandoned animal? Report it here.</p>
+
+    <form action="/rescue" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Contact Number" required>
+        <input type="text" name="location" placeholder="Animal Location" required>
+
+        <select name="animal" required>
+            <option value="">Select Animal</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <textarea name="condition" placeholder="Describe the animal's condition and situation" required></textarea>
+
+        <button type="submit" class="btn">Submit Rescue Report</button>
+    </form>
+</section>
+
+<section id="about" class="section about-section">
+    <h2>About PetCare</h2>
+    <p>
+        PetCare is a pet adoption and rescue platform created to connect
+        homeless animals with loving families. Our goal is to encourage
+        responsible adoption and help animals in need find safety and care.
+    </p>
+
+    <div class="stats">
+        <div><h3>🐕</h3><p>Pet Adoption</p></div>
+        <div><h3>❤️</h3><p>Animal Rescue</p></div>
+        <div><h3>🏠</h3><p>Loving Homes</p></div>
+    </div>
+</section>
+
+<footer>
+    <h3>🐾 PetCare</h3>
+    <p>Adopt Love. Save Lives. Make a Difference.</p>
+    <p>© 2026 PetCare. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

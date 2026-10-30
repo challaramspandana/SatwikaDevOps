@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pet-adoption-platform
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pet-adoption-platform
+
+  template:
+    metadata:
+      labels:
+        app: pet-adoption-platform
+
+    spec:
+      containers:
+        - name: pet-adoption-platform
+          image: YOUR_DOCKERHUB_USERNAME/pet-adoption-platform:latest
+
+          ports:
+            - containerPort: 5000
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
