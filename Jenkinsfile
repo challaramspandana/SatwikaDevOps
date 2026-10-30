@@ -37,7 +37,7 @@ pipeline {
 
                 bat "docker tag pet-adoption-platform:v1 spandana234/pet-adoption-platform:latest"
 
-                bat "docker push YOUR_DOCKERHUB_USERNAME/pet-adoption-platform:latest"
+                bat "docker push spandana234/pet-adoption-platform:latest"
             }
         }
 
